@@ -1,0 +1,5 @@
+lib/libtor.a
+lib/libor.a
+lib/libor-ctime.a
+lib/libor-crypto.a
+lib/libor-event.a 
