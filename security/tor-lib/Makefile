@@ -109,11 +109,17 @@ post-patch-STATIC_TOR-on:
 		${WRKSRC}/configure
 
 do-install:
-	${INSTALL_DATA} ${WRKSRC}/src/or/libtor.a ${STAGEDIR}${PREFIX}/lib/
-	${INSTALL_DATA} ${WRKSRC}/src/common/libor.a ${STAGEDIR}${PREFIX}/lib/
-	${INSTALL_DATA} ${WRKSRC}/src/common/libor-ctime.a ${STAGEDIR}${PREFIX}/lib/
-	${INSTALL_DATA} ${WRKSRC}/src/common/libor-crypto.a ${STAGEDIR}${PREFIX}/lib/
-	${INSTALL_DATA} ${WRKSRC}/src/common/libor-event.a ${STAGEDIR}${PREFIX}/lib/
+	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/or/libtor.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/common/libor.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/common/libor-ctime.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/common/libor-crypto.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/common/libor-event.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/trunnel/libor-trunnel.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/common/libcurve25519_donna.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/ext/ed25519/donna/libed25519_donna.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/ext/ed25519/ref10/libed25519_ref10.a ${STAGEDIR}${PREFIX}/lib/tor/
+	${INSTALL_DATA} ${WRKSRC}/src/ext/keccak-tiny/libkeccak-tiny.a ${STAGEDIR}${PREFIX}/lib/tor/
 
 .if ! ${PORT_OPTIONS:MTOR2WEB}
 check regression-test test: build

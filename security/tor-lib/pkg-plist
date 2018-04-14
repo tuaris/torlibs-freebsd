@@ -1,5 +1,10 @@
-lib/libtor.a
-lib/libor.a
-lib/libor-ctime.a
-lib/libor-crypto.a
-lib/libor-event.a 
+lib/tor/libtor.a
+lib/tor/libor.a
+lib/tor/libor-ctime.a
+lib/tor/libor-crypto.a
+lib/tor/libor-event.a
+lib/tor/libor-trunnel.a
+lib/tor/libcurve25519_donna.a
+lib/tor/libed25519_donna.a
+lib/tor/libed25519_ref10.a
+lib/tor/libkeccak-tiny.a
